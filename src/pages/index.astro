@@ -1,16 +1,29 @@
 ---
-
+import AppLayout from "../layouts/AppLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<AppLayout title="Juego de dado">
+	<div class="buttons flex d-flex justify-between">
+		<button id="btn-tirar-dado">Tirar dado</button>
+		<button class="border rounded p-2" id="btn-ayuda">?</button>
+	</div>
+
+	<div class="dados flex mt-6 d-flex justify-between">
+		<button id="dado-1"><img src="dado-1.jpg" alt="1"></button>
+    <button id="dado-2"><img src="dado-2.jpg" alt="2"></button>
+    <button id="dado-3"><img src="dado-3.jpg" alt="3"></button>
+    <button id="dado-4"><img src="dado-4.jpg" alt="4"></button>
+    <button id="dado-5"><img src="dado-5.jpg" alt="5"></button>
+    <button id="dado-6"><img src="dado-6.jpg" alt="6"></button>
+	</div>
+
+	<script>
+		const btnTirarDado = document.querySelector('#btn-tirar-dado');
+		const btnAyuda = document.querySelector('#btn-ayuda');
+
+		btnTirarDado.addEventListener('click', () => {
+			const numeroDado = Math.floor(Math.random() * 6) + 1;
+			console.log(numeroDado);
+		})
+</script>
+</AppLayout>
